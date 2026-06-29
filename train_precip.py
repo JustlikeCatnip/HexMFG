@@ -52,6 +52,7 @@ def train_regression(hparams):
         logger=tb_logger,
         callbacks=[checkpoint_callback, earlystopping_callback, lr_monitor],
         val_check_interval=hparams.val_check_interval,
+        enable_model_summary=False
     )
     trainer.fit(model=net, ckpt_path=hparams.resume_from_checkpoint)
 
